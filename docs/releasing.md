@@ -13,8 +13,12 @@ From the current `main` checkout, verify the npm account and package contents:
 ```sh
 npm whoami
 npm run pack:check
-npm stage publish --access public
+npm stage publish --access public --provenance=false
 ```
+
+The local first stage has no GitHub OIDC provider, so disable the package's
+`publishConfig.provenance` setting for this command only. Keep provenance enabled for
+GitHub Actions releases.
 
 The current `main` package version is `0.2.5`. Find and review the staged version:
 
