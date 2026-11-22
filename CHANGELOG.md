@@ -4,13 +4,13 @@
 
 ### Patch Changes
 
-- [`84362be`](https://github.com/upstandplatform/redis/commit/84362bee4d02196c793d188c1612055095316099) Thanks [@mhbdev](https://github.com/mhbdev)! - Release a maintenance patch for dependency signature verification; runtime behavior is unchanged.
+- [`84362be`](https://github.com/UpstandPlatform/redis/commit/84362bee4d02196c793d188c1612055095316099) Thanks [@mhbdev](https://github.com/mhbdev)! - Release a maintenance patch for dependency signature verification; runtime behavior is unchanged.
 
 ## 0.2.4
 
 ### Patch Changes
 
-- [#9](https://github.com/upstandplatform/redis/pull/9) [`1c7e55f`](https://github.com/upstandplatform/redis/commit/1c7e55f9cf7d06a3ace1968423ee8c6ea96441f5) Thanks [@dependabot](https://github.com/apps/dependabot)! - Refresh development dependencies and align Markdown formatting with the updated Biome release.
+- [#9](https://github.com/UpstandPlatform/redis/pull/9) [`1c7e55f`](https://github.com/UpstandPlatform/redis/commit/1c7e55f9cf7d06a3ace1968423ee8c6ea96441f5) Thanks [@dependabot](https://github.com/apps/dependabot)! - Refresh development dependencies and align Markdown formatting with the updated Biome release.
 
 ## 0.2.3
 
@@ -28,7 +28,7 @@
 
 ### Patch Changes
 
-- [`d02479a`](https://github.com/upstandplatform/redis/commit/d02479ac5f1308d5ec5478995a1e596afc99249d) Thanks [@mhbdev](https://github.com/mhbdev)! - Update development dependencies and GitHub Actions workflows.
+- [`d02479a`](https://github.com/UpstandPlatform/redis/commit/d02479ac5f1308d5ec5478995a1e596afc99249d) Thanks [@mhbdev](https://github.com/mhbdev)! - Update development dependencies and GitHub Actions workflows.
 
 ## 0.2.0
 

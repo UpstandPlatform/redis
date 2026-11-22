@@ -13,12 +13,12 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/upstandplatform/redis.git"
+		"url": "git+https://github.com/UpstandPlatform/redis.git"
 	},
 	"bugs": {
-		"url": "https://github.com/upstandplatform/redis/issues"
+		"url": "https://github.com/UpstandPlatform/redis/issues"
 	},
-	"homepage": "https://github.com/upstandplatform/redis#readme",
+	"homepage": "https://github.com/UpstandPlatform/redis#readme",
 	"keywords": [
 		"redis",
 		"rate-limit",
