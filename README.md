@@ -1,4 +1,4 @@
-# `@mhbdev/redis`
+# `@upstand/redis`
 
 Typed Redis infrastructure for Node.js 20+ and Bun. The package provides a managed
 node-redis client, connection pools, atomic rate limiting, typed caching, distributed
@@ -7,13 +7,13 @@ locks, pub/sub, and reliable at-least-once queues.
 ## Install
 
 ```sh
-npm install @mhbdev/redis
+npm install @upstand/redis
 ```
 
 ## Client and pooling
 
 ```ts
-import { createRedisClient, createRedisPool, withRedisClient } from "@mhbdev/redis";
+import { createRedisClient, createRedisPool, withRedisClient } from "@upstand/redis";
 
 await withRedisClient(
 	{ url: process.env.REDIS_URL!, commandTimeoutMs: 3_000 },
@@ -55,7 +55,7 @@ without changing cache, limiter, lock, or queue code:
 
 ```ts
 import Redis from "ioredis";
-import { createIoredisExecutor } from "@mhbdev/redis/ioredis";
+import { createIoredisExecutor } from "@upstand/redis/ioredis";
 
 const redis = createIoredisExecutor(new Redis(process.env.REDIS_URL!));
 ```
@@ -74,8 +74,8 @@ for that integration.
 ## Rate limiting
 
 ```ts
-import { createRateLimiter, fixedWindow } from "@mhbdev/redis/rate-limit";
-import { createRedisClient } from "@mhbdev/redis";
+import { createRateLimiter, fixedWindow } from "@upstand/redis/rate-limit";
+import { createRedisClient } from "@upstand/redis";
 
 const redis = createRedisClient({ url: process.env.REDIS_URL! });
 const limiter = createRateLimiter(fixedWindow(10, 60_000), {
@@ -99,7 +99,7 @@ strict enforcement.
 ## Cache, locks, pub/sub, and queues
 
 ```ts
-import { createCache, createLockManager, jsonCodec } from "@mhbdev/redis";
+import { createCache, createLockManager, jsonCodec } from "@upstand/redis";
 
 const cache = createCache<User>({ redis, prefix: "users" }); // JSON by default
 const binaryCache = createCache({ redis, codec: jsonCodec<User>(), prefix: "users" });
@@ -125,7 +125,7 @@ import {
   RedisProtocolError,
   RedisTimeoutError,
   RedisUnavailableError,
-} from "@mhbdev/redis";
+} from "@upstand/redis";
 
 try {
   await redis.ping();

@@ -19,10 +19,10 @@ token to the repository or GitHub secrets for that workflow.
 
 ## Configure npm trusted publishing
 
-After `@mhbdev/redis` exists on npm, open the package's npm settings and add a GitHub
+After `@upstand/redis` exists on npm, open the package's npm settings and add a GitHub
 Actions trusted publisher with:
 
-- GitHub organization/user: `mhbdev`
+- GitHub organization/user: `upstandplatform`
 - Repository: `redis`
 - Workflow filename: `.github/workflows/release.yml`
 - Environment: `npm-release`

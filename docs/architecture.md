@@ -18,7 +18,7 @@ node-redis adapter, pool, or user adapter
 ```
 
 `RedisExecutor` exposes command and script execution without coupling the feature
-modules to node-redis. `@mhbdev/redis/node` owns TCP/TLS connection lifecycle,
+modules to node-redis. `@upstand/redis/node` owns TCP/TLS connection lifecycle,
 timeouts, bounded reconnects, pooling, and the explicit raw-client escape hatch.
 
 Every public module validates configuration at construction or before issuing a

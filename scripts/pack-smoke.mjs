@@ -6,7 +6,7 @@ import { join } from "node:path";
 const npm =
 	process.platform === "win32" && process.env.npm_execpath ? process.execPath : "npm";
 const npmPrefix = npm === process.execPath ? [process.env.npm_execpath] : [];
-const temporaryDirectory = mkdtempSync(join(tmpdir(), "mhbdev-redis-pack-"));
+const temporaryDirectory = mkdtempSync(join(tmpdir(), "upstand-redis-pack-"));
 
 try {
 	const packed = JSON.parse(
@@ -33,7 +33,7 @@ try {
 		[
 			"--input-type=module",
 			"-e",
-			'await Promise.all(["@mhbdev/redis", "@mhbdev/redis/node", "@mhbdev/redis/ioredis", "@mhbdev/redis/bullmq", "@mhbdev/redis/rate-limit", "@mhbdev/redis/cache", "@mhbdev/redis/locks", "@mhbdev/redis/pubsub", "@mhbdev/redis/queue", "@mhbdev/redis/testing"].map((entry) => import(entry)));',
+			'await Promise.all(["@upstand/redis", "@upstand/redis/node", "@upstand/redis/ioredis", "@upstand/redis/bullmq", "@upstand/redis/rate-limit", "@upstand/redis/cache", "@upstand/redis/locks", "@upstand/redis/pubsub", "@upstand/redis/queue", "@upstand/redis/testing"].map((entry) => import(entry)));',
 		],
 		{ cwd: temporaryDirectory, stdio: "inherit" },
 	);

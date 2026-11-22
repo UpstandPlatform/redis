@@ -1,5 +1,5 @@
 {
-	"name": "@mhbdev/redis",
+	"name": "@upstand/redis",
 	"version": "0.2.5",
 	"description": "Typed, production-ready Redis infrastructure for Node.js and Bun.",
 	"license": "MIT",
@@ -13,12 +13,12 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/mhbdev/redis.git"
+		"url": "git+https://github.com/upstandplatform/redis.git"
 	},
 	"bugs": {
-		"url": "https://github.com/mhbdev/redis/issues"
+		"url": "https://github.com/upstandplatform/redis/issues"
 	},
-	"homepage": "https://github.com/mhbdev/redis#readme",
+	"homepage": "https://github.com/upstandplatform/redis#readme",
 	"keywords": [
 		"redis",
 		"rate-limit",

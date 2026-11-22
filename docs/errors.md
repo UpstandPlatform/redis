@@ -6,7 +6,7 @@ human-readable message, and an optional `cause`. Use `instanceof` or
 serialized causes.
 
 ```ts
-import { isRedisErrorCode } from "@mhbdev/redis";
+import { isRedisErrorCode } from "@upstand/redis";
 
 try {
   await redis.ping();

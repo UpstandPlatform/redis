@@ -1,5 +1,5 @@
 {
-	"changelog": ["@changesets/changelog-github", { "repo": "mhbdev/redis" }],
+	"changelog": ["@changesets/changelog-github", { "repo": "upstandplatform/redis" }],
 	"commit": false,
 	"fixed": [],
 	"linked": [],
