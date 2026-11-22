@@ -1,37 +1,69 @@
 # Releasing to npm
 
-## One-time initial publication
+## One-time initial staged publication
 
-The package is intentionally published once by an authorized maintainer before npm
-can attach a trusted publisher to it. From this package directory, after reviewing the
-dry-run output:
+The first version is staged by an authorized maintainer and approved manually before
+GitHub Actions is allowed to publish later versions. The npm organization that owns the
+`@upstand` scope must exist, and your npm account needs write access to the package.
+Enable 2FA on the npm account used to approve the stage. Staged publishing requires
+Node.js 22.14.0 or newer and npm 11.15.0 or newer.
+
+From the current `main` checkout, verify the npm account and package contents:
 
 ```sh
 npm whoami
 npm run pack:check
-npm publish --access public --provenance=false
+npm stage publish --access public
 ```
 
-The one-time local publication explicitly disables provenance because a local shell has
-no OIDC provider. The package still declares provenance by default, and the GitHub
-workflow will generate provenance through npm trusted publishing. Do not add an npm
-token to the repository or GitHub secrets for that workflow.
+The current `main` package version is `0.2.5`. Find and review the staged version:
+
+```sh
+npm stage list @upstand/redis
+npm stage view <stage-id>
+npm stage download <stage-id>
+```
+
+Approve it with your npm account's 2FA challenge, replacing `<stage-id>` with the ID
+shown by `npm stage list`:
+
+```sh
+npm stage approve <stage-id>
+```
+
+When staging a package that does not exist yet, npm makes a `0.0.0-stage` placeholder
+version public. The staged `0.2.5` contents remain unavailable until approval. The
+staged local publication does not carry GitHub Actions provenance; later releases from
+the trusted publisher will.
 
 ## Configure npm trusted publishing
 
-After `@upstand/redis` exists on npm, open the package's npm settings and add a GitHub
-Actions trusted publisher with:
+After `@upstand/redis` exists on npm, open its **Settings → Trusted Publisher** section
+and add a GitHub Actions publisher with these exact values:
 
 - GitHub organization/user: `UpstandPlatform`
 - Repository: `redis`
-- Workflow filename: `.github/workflows/release.yml`
+- Workflow filename: `release.yml`
 - Environment: `npm-release`
 
-The GitHub repository must also have the `npm-release` environment available. The
-release job already requests only the permissions required for Changesets and npm
-provenance: repository contents, pull requests, and the OIDC `id-token`. It does not
-provide `NODE_AUTH_TOKEN`, so npm uses trusted publishing rather than a long-lived
-automation token.
+For allowed actions, enable **npm publish**. The release workflow's
+`changesets/action` runs `changeset publish`, which calls `npm publish`; a publisher
+configured only for `npm stage publish` will not authorize this workflow. New npm
+publisher configurations default to staged publishing, so explicitly allow direct
+publishing for the current workflow.
+
+The release job already grants `id-token: write`, uses GitHub-hosted runners, Node.js
+22.14.0, and npm 11.7.0, and selects the `npm-release` GitHub environment. The package's
+repository URL uses GitHub's canonical case (`UpstandPlatform/redis`), which must match
+the repository used for provenance. Do not add an npm token to the repository or
+GitHub secrets; trusted publishing uses short-lived OIDC credentials and automatically
+generates provenance.
+
+A new npm trusted publisher must complete its first successful publish within two days
+of configuration. After configuring it, merge the open Changesets release PR to publish
+`@upstand/redis@1.0.0` through GitHub Actions. If that two-day window expires, delete the
+publisher configuration, add it again, and complete a successful publish within the new
+window.
 
 ## Subsequent releases
 
