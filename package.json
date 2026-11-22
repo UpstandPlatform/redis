@@ -108,7 +108,7 @@
 		"release": "changeset publish"
 	},
 	"dependencies": {
-		"redis": "^6.3.0"
+		"redis": "^6.3.1"
 	},
 	"peerDependencies": {
 		"bullmq": ">=5",
