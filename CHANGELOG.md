@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0
+
+### Major Changes
+
+- [`40abd48`](https://github.com/UpstandPlatform/redis/commit/40abd483f8410135ff44677c9e97239092678e0c) Thanks [@mhbdev](https://github.com/mhbdev)! - Rename the package to `@upstand/redis`.
+
 ## 0.2.5
 
 ### Patch Changes
