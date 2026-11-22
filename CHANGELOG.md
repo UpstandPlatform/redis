@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1
+
+### Patch Changes
+
+- [`acc3cf2`](https://github.com/UpstandPlatform/redis/commit/acc3cf23d4cb3e7994cba3609d949270fcbcc469) Thanks [@mhbdev](https://github.com/mhbdev)! - Require node-redis 6.3.1 or later to include the patched MSAL dependency for CVE-2026-109461.
+
 ## 1.0.0
 
 ### Major Changes
